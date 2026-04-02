@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo Detalhado iFamily 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #6366f1 0%, #10b981 50%, #f59e0b 100%);
+            border-radius: 2px;
+        }
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; transform: translateX(-50%); }
+        }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-20">
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-slate-200 py-12 mb-12">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold mb-4 uppercase tracking-wider">Documentação de Processo</span>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Arquitetura iFamily 2.0</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                Uma visão detalhada de como os dados fluem das planilhas para o Slack, acompanhando cada marco da jornada de parentalidade.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <!-- Seção: Processamento de Dados (O que acontece antes) -->
+        <section class="mb-20">
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center text-sm">01</span>
+                Processamento e Higienização de Dados
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="text-indigo-600 font-bold text-xs mb-2">INPUT</div>
+                    <h4 class="font-bold mb-1">Captação</h4>
+                    <p class="text-xs text-slate-500">Lê o Google Form e filtra inscrições pós-Março/26.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="text-indigo-600 font-bold text-xs mb-2">CLEANING</div>
+                    <h4 class="font-bold mb-1">Deduplicação</h4>
+                    <p class="text-xs text-slate-500">Compara e-mails para evitar registros repetidos na base.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="text-indigo-600 font-bold text-xs mb-2">MAPPING</div>
+                    <h4 class="font-bold mb-1">Slack Lookup</h4>
+                    <p class="text-xs text-slate-500">Converte e-mail corporativo em ID interno do Slack.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm border-l-4 border-l-emerald-500">
+                    <div class="text-emerald-600 font-bold text-xs mb-2">SAFETY</div>
+                    <h4 class="font-bold mb-1">Anti-Spam</h4>
+                    <p class="text-xs text-slate-500">Consulta a planilha 'Controle' para não repetir mensagens já enviadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Timeline Detalhada -->
+        <section class="relative mb-20">
+            <h2 class="text-2xl font-bold mb-12 flex items-center gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center text-sm">02</span>
+                A Régua de Relacionamento (Milestones)
+            </h2>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="timeline-line"></div>
+
+                <!-- Milestone 1 -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-indigo-600 border-4 border-white shadow flex items-center justify-center text-white font-bold">0</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-indigo-600 text-xs font-bold uppercase mb-1">Dia da Inscrição</div>
+                        <h3 class="text-lg font-bold mb-2">Boas-vindas Colaborador</h3>
+                        <p class="text-sm text-slate-600">Confirmação de entrada no programa e envio do guia inicial iFamily via Slack.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full flex-row-reverse">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-indigo-500 border-4 border-white shadow flex items-center justify-center text-white font-bold">10</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-indigo-600 text-xs font-bold uppercase mb-1">10 Dias Após</div>
+                        <h3 class="text-lg font-bold mb-2">Notificação à Liderança</h3>
+                        <p class="text-sm text-slate-600">O líder recebe mensagem informando a participação do colaborador e dicas de gestão para o período.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-indigo-400 border-4 border-white shadow flex items-center justify-center text-white font-bold">30</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-indigo-600 text-xs font-bold uppercase mb-1">1 Mês Após</div>
+                        <h3 class="text-lg font-bold mb-2">Checklist de 30 Dias</h3>
+                        <p class="text-sm text-slate-600">Verificação de pendências e lembrete sobre benefícios iniciais (Copay).</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4 (DPP -90) -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full flex-row-reverse">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-emerald-500 border-4 border-white shadow flex items-center justify-center text-white font-bold">-90</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-emerald-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                        <div class="text-emerald-700 text-xs font-bold uppercase mb-1">Reta Final (3 Meses antes)</div>
+                        <h3 class="text-lg font-bold mb-2">Tempo de Planejar</h3>
+                        <p class="text-sm text-slate-700">Orientações sobre licença, substituição e entrega do Kit Mamãe.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 5 (DPP -30) -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-emerald-600 border-4 border-white shadow flex items-center justify-center text-white font-bold">-30</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-emerald-600 p-6 rounded-2xl shadow-lg text-white">
+                        <div class="text-emerald-200 text-xs font-bold uppercase mb-1">Contagem Decrescente</div>
+                        <h3 class="text-lg font-bold mb-2">Preparação para o Parto</h3>
+                        <p class="text-sm opacity-90">Mensagem de apoio emocional e checklist final de RH.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 (DPP +20 a +360) -->
+                <div class="relative mb-16 md:flex justify-between items-center w-full flex-row-reverse">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="z-10 flex-none w-12 h-12 rounded-full bg-amber-500 border-4 border-white shadow flex items-center justify-center text-white font-bold">+</div>
+                    <div class="md:w-5/12 mt-4 md:mt-0 card-hover bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-amber-600 text-xs font-bold uppercase mb-1">Ciclo Pós-Nascimento</div>
+                        <h3 class="text-lg font-bold mb-2">Apoio no Retorno e Crescimento</h3>
+                        <div class="space-y-3 mt-4">
+                            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded-lg">
+                                <span class="text-xs font-bold bg-amber-100 p-1 rounded text-amber-700">+20d</span>
+                                <p class="text-xs">Retorno do Parceiro e inclusão no plano.</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded-lg">
+                                <span class="text-xs font-bold bg-amber-100 p-1 rounded text-amber-700">+120d</span>
+                                <p class="text-xs">Planejamento de Retorno com a Liderança.</p>
+                            </div>
+                            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded-lg">
+                                <span class="text-xs font-bold bg-amber-100 p-1 rounded text-amber-700">+360d</span>
+                                <p class="text-xs">Encerramento do Ciclo e feedback final.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção: Ecossistema de Planilhas -->
+        <section>
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center text-sm">03</span>
+                Sincronização de Dados (Estratégia Multibases)
+            </h2>
+            <div class="bg-indigo-900 rounded-3xl p-8 text-white">
+                <p class="text-indigo-200 mb-8">O Agente iFamily 2.0 não depende de uma única base. Ele sincroniza informações de múltiplas frentes para garantir precisão:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="border border-indigo-700 p-4 rounded-xl">
+                        <h5 class="font-bold mb-2 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path></svg>
+                            Base de Saúde
+                        </h5>
+                        <p class="text-xs text-indigo-300">Cruza dados com os Checkpoints de Saúde 1 e 2 para validar participação.</p>
+                    </div>
+                    <div class="border border-indigo-700 p-4 rounded-xl">
+                        <h5 class="font-bold mb-2 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                            Assistência Social
+                        </h5>
+                        <p class="text-xs text-indigo-300">Verifica o status de agendamento com o assistente social do projeto.</p>
+                    </div>
+                    <div class="border border-indigo-700 p-4 rounded-xl">
+                        <h5 class="font-bold mb-2 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"></path></svg>
+                            Kits e Logística
+                        </h5>
+                        <p class="text-xs text-indigo-300">Integração com a planilha de Controle de Kits para avisar o colaborador do envio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 text-center text-slate-400 text-xs">
+        <p>Agente iFamily 2.0 v2.5 | Desenvolvido para Google Apps Script & Slack API</p>
+    </footer>
+
+</body>
+</html>
